@@ -1,0 +1,188 @@
+/* -- Reset & Base ------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #f5f7fa;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+a { color: #4361ee; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* -- Navbar ------------------------------------------------ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a1a2e;
+  color: #fff;
+  padding: 0 2rem;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.4);
+}
+.brand { font-size: 1.3rem; font-weight: 700; color: #fff; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-link { color: #ccc; font-size: 0.95rem; transition: color .2s; }
+.nav-link:hover, .nav-link.active { color: #fff; text-decoration: none; }
+.cart-badge {
+  background: #e63946;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  padding: 1px 7px;
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+/* -- Layout ------------------------------------------------ */
+.main-container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+.page { }
+.page-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; }
+
+/* -- Alerts ------------------------------------------------ */
+.alert {
+  padding: .75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: .9rem;
+}
+.alert-error  { background: #ffe0e0; color: #b91c1c; border: 1px solid #fca5a5; }
+.alert-success { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+
+/* -- Loading / Empty --------------------------------------- */
+.loading, .empty-state { text-align: center; padding: 3rem; color: #666; font-size: 1.1rem; }
+
+/* -- Product Grid ------------------------------------------ */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.product-name  { font-size: 1.1rem; font-weight: 600; }
+.product-price { font-size: 1.3rem; font-weight: 700; color: #4361ee; }
+.product-stock { font-size: .85rem; color: #16a34a; }
+.product-stock.out { color: #dc2626; }
+
+/* -- Buttons ----------------------------------------------- */
+.btn {
+  padding: .55rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, opacity .2s;
+}
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-primary  { background: #4361ee; color: #fff; }
+.btn-primary:hover:not(:disabled)  { background: #3451d1; }
+.btn-secondary { background: #e2e8f0; color: #1a1a2e; }
+.btn-secondary:hover:not(:disabled) { background: #cbd5e1; }
+.btn-outline { background: transparent; border: 2px solid #4361ee; color: #4361ee; }
+.btn-outline:hover:not(:disabled) { background: #4361ee; color: #fff; }
+.btn-checkout { width: 100%; margin-top: 1rem; padding: .75rem; font-size: 1rem; }
+
+/* -- Sticky bar -------------------------------------------- */
+.sticky-bar {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+/* -- Cart Table -------------------------------------------- */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  margin-bottom: 1.5rem;
+}
+.cart-table th, .cart-table td {
+  padding: .85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+.cart-table th { background: #f8fafc; font-size: .85rem; text-transform: uppercase; color: #64748b; letter-spacing: .05em; }
+.cart-table tr:last-child td { border-bottom: none; }
+
+/* -- Quantity Control -------------------------------------- */
+.qty-control { display: flex; align-items: center; gap: .5rem; }
+.qty-btn {
+  background: #e2e8f0;
+  border: none;
+  border-radius: 6px;
+  width: 28px; height: 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.qty-btn:hover { background: #cbd5e1; }
+.qty-value { font-weight: 600; min-width: 20px; text-align: center; }
+
+/* -- Coupon Section ---------------------------------------- */
+.coupon-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  margin-bottom: 1.5rem;
+}
+.coupon-section h3 { margin-bottom: .75rem; font-size: 1rem; }
+.coupon-row { display: flex; gap: .75rem; }
+.coupon-input {
+  flex: 1;
+  padding: .5rem .85rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: .9rem;
+  outline: none;
+  text-transform: uppercase;
+}
+.coupon-input:focus { border-color: #4361ee; }
+.coupon-hints { font-size: .8rem; color: #64748b; margin-top: .5rem; }
+
+/* -- Summary Card ------------------------------------------ */
+.summary-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  max-width: 480px;
+  margin-left: auto;
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: .45rem 0;
+  font-size: .95rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+.summary-row:last-of-type { border-bottom: none; }
+.summary-row.discount { color: #16a34a; }
+.summary-row.grand { font-weight: 700; font-size: 1.05rem; margin-top: .25rem; }
+
+/* -- Order Confirmation ------------------------------------ */
+.confirmation-header {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+}
+.check-icon { font-size: 3rem; display: block; margin-bottom: .5rem; }
+.confirmation-header h1 { font-size: 2rem; margin-bottom: .4rem; color: #16a34a; }
+.order-id { color: #64748b; font-size: .95rem; margin-bottom: 1.5rem; }
+.confirmation-actions { display: flex; justify-content: center; margin-top: 1.5rem; }
